@@ -60,6 +60,7 @@ or, if in a module:
 
 `sudo ./mitm_setup status --config ./config.toml`
 `sudo ./mitm_setup info --config ./config.toml`
+
 ---
 
 ## Configuration (config.toml)
