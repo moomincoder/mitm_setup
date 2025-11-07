@@ -1,0 +1,25 @@
+# mitm_setup default config
+ap_iface = "wlx002522446554" 	# Access point interface
+upstream_iface = "wlp1s0"		# Upstream (internet facing) interface
+ap_net = ""
+ap_addr = "10.10.10.1"
+ap_netmask = "255.255.255.0"
+dhcp_range_start = "10.10.10.10"
+dhcp_range_end = "10.10.10.200"
+ssid = "Lab-MITM-AP"
+passphrase = "labpassword"
+workdir = "/tmp/lab_mitm"
+mitmproxy_port = 8080
+dns_port = 53
+
+# Use nftables when available (true/false)
+use_nft = true
+
+# Paths to binaries (optional overrides)
+hostapd_bin = ""    # e.g. /usr/sbin/hostapd
+dnsmasq_bin = ""
+tcpdump_bin = ""
+mitmdump_bin = ""
+
+# logging verbosity
+verbose = true
