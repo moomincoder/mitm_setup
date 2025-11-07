@@ -206,6 +206,6 @@ Intercepted data may contain sensitive information. Handle responsibly.
 
 ## License
 
-No warranty. Consider adding a formal license (e.g., MIT) if redistributing.
+NO WARRANTY OF ANY KIND.
 
 Author: Neko
