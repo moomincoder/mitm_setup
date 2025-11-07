@@ -23,12 +23,12 @@ For controlled lab testing only. Run as root and only test devices you own or ha
 
 Install the following (Debian/Ubuntu example):
 
-```
-sudo apt update
-sudo apt install -y hostapd dnsmasq tcpdump mitmproxy iproute2 nftables
-```
+
+`sudo apt update`
+`sudo apt install -y hostapd dnsmasq tcpdump mitmproxy iproute2 nftables`
 
 Binaries expected (overridable in config):
+
 `hostapd`, `dnsmasq`, `tcpdump`, `ip`, and one of `mitmdump` or `mitmproxy`.
 
 If nft exists and use_nft = true, nftables is used; otherwise iptables.
@@ -51,20 +51,20 @@ or, if in a module:
 2) Start:
 
 `sudo ./mitm_setup start --config ./config.toml`
+
 3) Stop and clean up:
 
 `sudo ./mitm_setup stop --config ./config.toml`
 
 4) Status / info:
-```
-sudo ./mitm_setup status --config ./config.toml
-sudo ./mitm_setup info --config ./config.toml
-```
+
+`sudo ./mitm_setup status --config ./config.toml`
+`sudo ./mitm_setup info --config ./config.toml`
 ---
 
 ## Configuration (config.toml)
 
-If --config path doesn’t exist, a default is written:
+If `--config` path doesn’t exist, a default is written:
 ```
 ap_iface = "wlx002522446554"
 upstream_iface = "wlp1s0"
