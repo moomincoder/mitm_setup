@@ -32,7 +32,7 @@ Binaries expected (overridable in config):
 
 `hostapd`, `dnsmasq`, `tcpdump`, `ip`, and one of `mitmdump` or `mitmproxy`.
 
-If nft exists and use_nft = true, nftables is used; otherwise iptables.
+If `nft` exists and `use_nft = true`, `nftables` is used; otherwise `iptables`.
 
 ---
 
