@@ -23,20 +23,26 @@ For controlled lab testing only. Run as root and only test devices you own or ha
 
 Install the following (Debian/Ubuntu example):
 
+```
 sudo apt update
 sudo apt install -y hostapd dnsmasq tcpdump mitmproxy iproute2 nftables
+```
 
 Binaries expected (overridable in config):
+```
 hostapd, dnsmasq, tcpdump, ip, and one of mitmdump or mitmproxy.
 If nft exists and use_nft = true, nftables is used; otherwise iptables.
+```
 
 ---
 
 ## Build
 
-go build -o mitm_setup mitm_setup.go
-#### or, if in a module:
-go install ./...
+`go build -o mitm_setup mitm_setup.go`
+
+or, if in a module:
+
+`go install ./...`
 
 ---
 
@@ -45,23 +51,22 @@ go install ./...
 1) Create or edit a config (a default is auto-written if missing).
 2) Start:
 
-sudo ./mitm_setup start --config ./config.toml
-
+`sudo ./mitm_setup start --config ./config.toml`
 3) Stop and clean up:
 
-sudo ./mitm_setup stop --config ./config.toml
+`sudo ./mitm_setup stop --config ./config.toml`
 
 4) Status / info:
-
+```
 sudo ./mitm_setup status --config ./config.toml
 sudo ./mitm_setup info --config ./config.toml
-
+```
 ---
 
 ## Configuration (config.toml)
 
 If --config path doesn’t exist, a default is written:
-
+```
 ap_iface = "wlx002522446554"
 upstream_iface = "wlp1s0"
 ap_net = ""
@@ -83,6 +88,7 @@ tcpdump_bin = ""
 mitmdump_bin = ""
 
 verbose = true
+```
 
 Key fields:
 - ap_iface: Wi-Fi interface for AP (must exist and support AP mode)
@@ -98,8 +104,7 @@ Key fields:
 
 ## Usage
 
-sudo mitm_setup start|stop|status|info --config /path/to/config.toml
-
+`sudo mitm_setup start|stop|status|info --config /path/to/config.toml`
 Commands:
 - start: checks prereqs, writes configs, configures networking, sets NAT/redirects, starts hostapd, dnsmasq, mitmproxy, tcpdump
 - stop: stops processes, restores nft/iptables (best-effort), restores sysctl and rp_filter, downs AP iface
@@ -108,8 +113,7 @@ Commands:
 
 Example:
 
-sudo ./mitm_setup start --config /etc/mitm_lab/config.toml
-
+`sudo ./mitm_setup start --config /etc/mitm_lab/config.toml`
 ---
 
 ## Files written (default workdir = /tmp/lab_mitm)
@@ -145,7 +149,7 @@ sudo ./mitm_setup start --config /etc/mitm_lab/config.toml
 To view TLS traffic from your test device:
 1. Start the tool.
 2. Copy the mitmproxy CA from the host:
-   ~/.mitmproxy/mitmproxy-ca-cert.pem
+   `~/.mitmproxy/mitmproxy-ca-cert.pem`
 3. Install that CA on the test device only.
    Never install on production/personal devices.
 
@@ -156,6 +160,7 @@ To view TLS traffic from your test device:
 Testing an IoT camera:
 
 # config.toml
+```
 ap_iface = "wlan1"
 upstream_iface = "eth0"
 ssid = "Lab-MITM-AP"
@@ -166,16 +171,18 @@ dhcp_range_start = "10.10.10.10"
 dhcp_range_end = "10.10.10.200"
 use_nft = true
 workdir = "/tmp/lab_mitm"
-
+```
 Commands:
 
-sudo ./mitm_setup start --config ./config.toml
-# let the camera join, use it a bit
-sudo ./mitm_setup stop --config ./config.toml
+`sudo ./mitm_setup start --config ./config.toml`
+
+Let the camera join, use it a bit
+
+`sudo ./mitm_setup stop --config ./config.toml`
 
 # analyze:
-wireshark /tmp/lab_mitm/captured_traffic.pcap
-less /tmp/lab_mitm/mitmproxy.log
+`wireshark /tmp/lab_mitm/captured_traffic.pcap`
+`less /tmp/lab_mitm/mitmproxy.log`
 
 ---
 
