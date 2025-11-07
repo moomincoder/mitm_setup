@@ -1,4 +1,4 @@
-# mitm_setup — Automated MITM Access Point for Testing IoT Devices
+# mitm_setup - Automated MITM Access Point for Testing IoT Devices
 
 mitm_setup is a Go CLI that brings up a lab Wi-Fi access point with DHCP/DNS, transparent mitmproxy, and a tcpdump capture.
 For controlled lab testing only. Run as root and only test devices you own or have permission to test.
