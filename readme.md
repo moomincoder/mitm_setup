@@ -25,6 +25,7 @@ Install the following (Debian/Ubuntu example):
 
 
 `sudo apt update`
+
 `sudo apt install -y hostapd dnsmasq tcpdump mitmproxy iproute2 nftables`
 
 Binaries expected (overridable in config):
