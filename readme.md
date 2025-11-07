@@ -183,7 +183,7 @@ Let the camera join, use it a bit
 
 `sudo ./mitm_setup stop --config ./config.toml`
 
-# analyze:
+# Analyze:
 `wireshark /tmp/lab_mitm/captured_traffic.pcap`
 
 `less /tmp/lab_mitm/mitmproxy.log`
