@@ -114,6 +114,7 @@ Commands:
 Example:
 
 `sudo ./mitm_setup start --config /etc/mitm_lab/config.toml`
+
 ---
 
 ## Files written (default workdir = /tmp/lab_mitm)
