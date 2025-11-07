@@ -105,11 +105,12 @@ Key fields:
 ## Usage
 
 `sudo mitm_setup start|stop|status|info --config /path/to/config.toml`
+
 Commands:
-- start: checks prereqs, writes configs, configures networking, sets NAT/redirects, starts hostapd, dnsmasq, mitmproxy, tcpdump
-- stop: stops processes, restores nft/iptables (best-effort), restores sysctl and rp_filter, downs AP iface
-- status: shows running services (via PID files), paths, current ports, AP_CIDR
-- info: shows PCAP path and mitmproxy CA location
+- `start`: checks prereqs, writes configs, configures networking, sets NAT/redirects, starts hostapd, dnsmasq, mitmproxy, tcpdump
+- `stop`: stops processes, restores nft/iptables (best-effort), restores sysctl and rp_filter, downs AP iface
+- `status`: shows running services (via PID files), paths, current ports, AP_CIDR
+- `info`: shows PCAP path and mitmproxy CA location
 
 Example:
 
@@ -183,6 +184,7 @@ Let the camera join, use it a bit
 
 # analyze:
 `wireshark /tmp/lab_mitm/captured_traffic.pcap`
+
 `less /tmp/lab_mitm/mitmproxy.log`
 
 ---
