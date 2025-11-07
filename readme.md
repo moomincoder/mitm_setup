@@ -35,7 +35,7 @@ If nft exists and use_nft = true, nftables is used; otherwise iptables.
 ## Build
 
 go build -o mitm_setup mitm_setup.go
-# or, if in a module:
+or, if in a module:
 go install ./...
 
 ---
