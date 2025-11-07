@@ -29,10 +29,9 @@ sudo apt install -y hostapd dnsmasq tcpdump mitmproxy iproute2 nftables
 ```
 
 Binaries expected (overridable in config):
-```
-hostapd, dnsmasq, tcpdump, ip, and one of mitmdump or mitmproxy.
+`hostapd`, `dnsmasq`, `tcpdump`, `ip`, and one of `mitmdump` or `mitmproxy`.
+
 If nft exists and use_nft = true, nftables is used; otherwise iptables.
-```
 
 ---
 
