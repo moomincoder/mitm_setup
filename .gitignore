@@ -10,12 +10,14 @@
 
 # Test binary, built with `go test -c`
 *.test
+mitm_setup
 
 # Code coverage profiles and other test artifacts
 *.out
 coverage.*
 *.coverprofile
 profile.cov
+*.html
 
 # Dependency directories (remove the comment below to include it)
 # vendor/
