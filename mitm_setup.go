@@ -38,7 +38,6 @@ dhcp_range_start = "10.10.10.10"
 dhcp_range_end = "10.10.10.200"
 ssid = "Lab-MITM-AP"
 passphrase = "labpassword"
-workdir = "/tmp/lab_mitm"
 mitmproxy_port = 8080
 dns_port = 53
 
@@ -166,7 +165,14 @@ func loadOrCreateConfig(path string) error {
 	if _, err := toml.DecodeFile(path, &cfg); err != nil { return fmt.Errorf("parsing %s: %w", path, err) }
 	// set safe defaults
 	if cfg.Passphrase == "" { cfg.Passphrase = "labpassword" }
-	if cfg.Workdir == "" { cfg.Workdir = "/tmp/lab_mitm" }
+	// if cfg.Workdir == "" { cfg.Workdir = "/tmp/lab_mitm" }
+	if cfg.Workdir == "" {
+		cwd, err := os.Getwd()
+		if err != nil {
+			return fmt.Errorf("could not determine current working directory: %w", err)
+		}
+		cfg.Workdir = cwd
+	}
 	if cfg.MitmproxyPort == 0 { cfg.MitmproxyPort = 8080 }
 	if cfg.DNSPort == 0 { cfg.DNSPort = 53 }
 	return nil
